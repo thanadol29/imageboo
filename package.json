@@ -1,10 +1,7 @@
 {
   "name": "imageuploader",
   "version": "1.0.0",
-  "private": true,
-  "engines": {
-    "node": "19.1.0"
-  },
+  "private": true,"build": "node ace build --production","start": "node server.js",
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
