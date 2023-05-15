@@ -1,9 +1,8 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Thread from 'App/Models/Thread'
-import { threadId } from 'worker_threads';
 
 export default class ThreadsController {
-    async index({ view,auth }: HttpContextContract) {
+    async index({ view}: HttpContextContract) {
         const threads = await Thread.query()
         .withCount('posts',(query)=>{
             query.as('postsCount')
