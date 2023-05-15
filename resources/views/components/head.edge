@@ -1,0 +1,20 @@
+
+@if (flashMessages.has('error'))
+<div class="alert alert-danger" role="alert">
+  {{ flashMessages.get('error') }}
+</div>
+@endif
+<div style="text-align:right">
+  <button href="{{route('user')}}">Login</button>
+  <form method="POST" action="{{ route('logout') }}">
+  <button>Logout</button>
+  </form>
+</div>
+<div style="text-align:center" class="p-5">
+
+<div>
+    <h1 class="pb-2">{{headerName}}</h1>
+    <img src="{{source}}" height="150px" width="500px" alt="">
+</div>
+<div class="pt-4"><button id="{{id}}">New thread</button></div>
+</div>

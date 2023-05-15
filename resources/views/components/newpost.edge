@@ -1,0 +1,23 @@
+<div style="text-align:center" >
+    <form method="POST" action="{{ action }}" enctype="multipart/form-data">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+        </div>
+        @if(label == '')
+        <div>
+          <label for="subject">Subject:</label>
+          <input type="subject" id="subject" name="subject">
+        </div>
+        @endif
+        <div>
+          <label for="comment">Comment:</label>
+          <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <label for="file">File (Image/Video):</label>
+            <input type="file" id="file" name="file" accept="image/*,video/*">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+</div>

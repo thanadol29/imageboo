@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  
+  <body>
+    
+    @if (flashMessages.has('error'))
+        <div class="alert alert-danger" role="alert">
+          {{ flashMessages.get('error') }}
+        </div>
+    @endif
+    
+    <div class="login-container">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Login</h1>
+          @include('components/LoginForm')
+        </div>
+      </div>
+      <div class="card ml-3">
+        <div class="card-body">
+          <h1 class="card-title">Register</h1>
+          @include('components/RegisterForm')
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

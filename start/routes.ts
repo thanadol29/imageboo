@@ -36,3 +36,17 @@ Route.post('/posts', async ({ request }) => {
 
 Route.post('/posts/image', 'Imagescontroller.store');
 Route.get('/posts/image/:id', 'Imagescontroller.show');
+Route.post('/postthread','ThreadsController.create').as('postthread');
+Route.get('/getthread','ThreadsController.index').as('home');
+Route.get('/getthreadcookie','ThreadsController.getcookie');
+Route.get('/showthread','ThreadsController.index');
+Route.get('/thread/:id','PostsController.index').as('thread');
+Route.post('/thread/post/:id','PostsController.store').as('threadstore');
+
+Route.post('/register','UsersController.registerUser')
+Route.post('/login','UsersController.login')
+Route.get('/login','UsersController.index').as('user');
+Route.post('/logout','UsersController.logout').as('logout')
+
+Route.get('/deletethread/:id','ThreadsController.destroy').as('delthread')
+Route.get('/deletepost/:id','PostsController.destroy').as('delpost')

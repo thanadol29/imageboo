@@ -14,15 +14,15 @@
     <div class="">
         <div class="card mb-3 " style="max-width: 840px;">
             <div class="card-header">
-                ID: {{post.id}}  Date: {{post.date}}
+                ID: {{threads[9].id}}  Date: {{threads[9].poster_id}} subject: {{threads[9].subject}}
               </div>
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src='/uploads/{{post.file}}' class="img-fluid" >
+                    <img src='/uploads/{{threads[9].image}}' class="img-fluid" >
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <p>{{post.body}}</p>
+                        <p>{{threads[9].comment}}</p>
                     </div>
                 </div>
             </div>
