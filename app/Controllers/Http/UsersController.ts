@@ -11,6 +11,7 @@ export default class UsersController {
     }
 
     async registerUser({ request, response, session }: HttpContextContract) {
+        try{
         const name = request.input('name');
         const password = request.input('password');
         const password_confirmation = request.input('password_confirmation');
@@ -37,11 +38,14 @@ export default class UsersController {
             console.log('Password has been encrybt')
         }
         await user.save();
-        return response.redirect().toRoute('home');
-
+        return response.redirect().toRoute('home');}
+        catch(error){
+            session.flash({ error: 'something when wrong' });
+        }
     }
 
     async login({ request, response, session,auth }: HttpContextContract) {
+        try{
         const name = request.input('name');
         const password = request.input('password')
         const user = await User.query().where('name', name).first();
@@ -62,6 +66,10 @@ export default class UsersController {
         //let a = session.get('user')
         //console.log(a);
         response.redirect().toRoute('home');
+    }
+    catch(error){
+        session.flash({ error: 'something when wrong' });
+    }
     }
     async logout({ auth, response }: HttpContextContract) {
        await auth.use('web').logout()

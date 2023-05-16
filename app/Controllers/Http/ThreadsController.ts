@@ -2,7 +2,14 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Thread from 'App/Models/Thread'
 
 export default class ThreadsController {
+
+    async getdefealt(response){
+        console.log('s')
+        return response.redirect().toPath('home')
+    }
+
     async index({ view}: HttpContextContract) {
+        console.log('s')
         const threads = await Thread.query()
         .withCount('posts',(query)=>{
             query.as('postsCount')
@@ -27,6 +34,10 @@ export default class ThreadsController {
         const type = coverImage?.type
         const posterID = request.ip()
         const thread = new Thread();
+        if(subject.length > 100 || comment.length > 200) {
+            session.flash({ error: 'text too long' });
+            return response.redirect('back');
+        }
         if(subject == null || comment == null) {
             session.flash({ error: 'user need to fill subject and comment' });
             return response.redirect('back');

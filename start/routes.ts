@@ -34,6 +34,8 @@ Route.post('/posts', async ({ request }) => {
   }
 })
 
+Route.get('/', 'ThreadsController.getdefealt')
+
 Route.post('/posts/image', 'Imagescontroller.store');
 Route.get('/posts/image/:id', 'Imagescontroller.show');
 Route.post('/postthread','ThreadsController.create').as('postthread');
