@@ -17,6 +17,10 @@ export default class UsersController {
         const roles = 'admin'
         const user = new User();
         const find = await User.find(name);
+        if(password.length <= 5){
+            session.flash({ error: 'Password need to atleast 6 unit' });
+            return response.redirect('back');
+        }
         if (name == find?.name) {
             session.flash({ error: 'Username need to be not same.' });
             return response.redirect('back');
@@ -33,7 +37,7 @@ export default class UsersController {
             console.log('Password has been encrybt')
         }
         await user.save();
-        return response.redirect().toPath('home');
+        return response.redirect().toRoute('home');
 
     }
 

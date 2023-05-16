@@ -18,7 +18,10 @@ export default class ThreadsController {
         const name = request.input('name')
         const comment = request.input('comment')
         const coverImage = request.file('file')
-        const datetime = Date.now().toString()
+        const unixTime = Date.now() / 1000;
+        const date1 = new Date(unixTime * 1000);
+        const realTime = date1.toLocaleString();
+        const datetime = realTime
         const now = Date.now().toString()
         const image = now + '.' + coverImage?.extname
         const type = coverImage?.type

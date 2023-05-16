@@ -1,20 +1,20 @@
 <div style="text-align:center" >
     <form method="POST" action="{{ action }}" enctype="multipart/form-data">
-        <div>
+        <div class="card-body">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name">
-        </div>
+        </div form-group>
         @if(label == '')
-        <div>
+        <div class="card-body">
           <label for="subject">Subject:</label>
           <input type="subject" id="subject" name="subject">
         </div>
         @endif
-        <div>
+        <div class="card-body">
           <label for="comment">Comment:</label>
           <textarea id="comment" name="comment"></textarea>
         </div>
-        <div>
+        <div class="card-body">
             <label for="file">File (Image/Video):</label>
             <input type="file" id="file" name="file" accept="image/*,video/*">
         </div>

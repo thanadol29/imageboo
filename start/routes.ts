@@ -45,7 +45,7 @@ Route.post('/thread/post/:id','PostsController.store').as('threadstore');
 
 Route.post('/register','UsersController.registerUser')
 Route.post('/login','UsersController.login')
-Route.get('/login','UsersController.index').as('user');
+Route.get('/login','UsersController.index').as('login');
 Route.post('/logout','UsersController.logout').as('logout')
 
 Route.get('/deletethread/:id','ThreadsController.destroy').as('delthread')

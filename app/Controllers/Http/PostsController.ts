@@ -23,7 +23,10 @@ export default class PostsController {
         const name = request.input('name')
         const coverImage = request.file('file')
         const posterID = request.ip()
-        const now = Date.now().toString()
+        const unixTime = Date.now() / 1000;
+        const date1 = new Date(unixTime * 1000);
+        const realTime = date1.toLocaleString();
+        const now = realTime
         const type = coverImage?.type
         const post = new Post();
         if(comment == null) {
